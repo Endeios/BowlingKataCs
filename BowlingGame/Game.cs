@@ -18,6 +18,7 @@ public class Game
         for (var frame = 0; frame < 10; frame++)
         {
             score += rolls[i] + rolls[i+1];
+            i += 2;
         }
 
         return score;
