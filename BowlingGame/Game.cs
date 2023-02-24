@@ -17,14 +17,14 @@ public class Game
         
         for (var frame = 0; frame < 10; frame++)
         {
-            if (rolls[currentFrame] == 10)
+            if (isStrike(currentFrame))
             {
-                score += rolls[currentFrame] + rolls[currentFrame+1] + rolls[currentFrame+2];
+                score += CountBonusScore(currentFrame);
                 currentFrame += 1;
             }
             else if (isSpare(currentFrame))
             {
-                score += rolls[currentFrame] + rolls[currentFrame+1] + rolls[currentFrame+2];
+                score += CountBonusScore(currentFrame);
                 currentFrame += 2;
             }
             else
@@ -36,6 +36,16 @@ public class Game
         }
 
         return score;
+    }
+
+    private int CountBonusScore(int currentFrame)
+    {
+        return rolls[currentFrame] + rolls[currentFrame+1] + rolls[currentFrame+2];
+    }
+
+    private bool isStrike(int currentFrame)
+    {
+        return rolls[currentFrame] == 10;
     }
 
     private bool isSpare(int i)
