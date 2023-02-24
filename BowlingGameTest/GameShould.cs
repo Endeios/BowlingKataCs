@@ -45,6 +45,17 @@ public class GameShould
         Assert.That(game.Score(), Is.EqualTo(16));
     }
 
+    [Test]
+    public void SupportStrike()
+    {
+        game.Roll(10);
+        game.Roll(3);
+        game.Roll(4);
+        RollTimes(0, 16);
+        
+        Assert.That(game.Score(), Is.EqualTo(24));
+    }
+
     private void RollTimes(int score, int rolls)
     {
         for (var i = 0; i < rolls; i++) game.Roll(score);
