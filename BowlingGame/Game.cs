@@ -17,6 +17,10 @@ public class Game
         
         for (var frame = 0; frame < 10; frame++)
         {
+            if (rolls[frame] == 10)
+            {
+                score += 10 + rolls[currentFrame + 1] + rolls[currentFrame + 2];
+            }
             if (isSpare(currentFrame))
             {
                 score += rolls[currentFrame+2];
