@@ -17,6 +17,10 @@ public class Game
         
         for (var frame = 0; frame < 10; frame++)
         {
+            if (rolls[i]+rolls[i+1]==10)
+            {
+                score += rolls[i+2];
+            }
             score += rolls[i] + rolls[i+1];
             i += 2;
         }

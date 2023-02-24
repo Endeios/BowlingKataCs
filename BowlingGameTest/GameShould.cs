@@ -34,7 +34,7 @@ public class GameShould
         Assert.That(game.Score(), Is.EqualTo(20));
     }
 
-    //[Test]
+    [Test]
     public void SupportOneSpare()
     {
         game.Roll(5);
