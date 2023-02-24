@@ -34,6 +34,17 @@ public class GameShould
         Assert.That(game.Score(), Is.EqualTo(20));
     }
 
+    [Test]
+    public void SupportOneSpare()
+    {
+        game.Roll(5);
+        game.Roll(5);
+        game.Roll(3);
+        RollTimes(0, 17);
+        
+        Assert.That(game.Score(), Is.EqualTo(16));
+    }
+
     private void RollTimes(int score, int rolls)
     {
         for (var i = 0; i < rolls; i++) game.Roll(score);
