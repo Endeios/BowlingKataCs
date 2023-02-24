@@ -1,5 +1,5 @@
 .idea/
-BowlingGame/bin/**
-BowlingGame/obj/**
-BowlingGameTest/bin/**
-BowlingGameTest/bin/**
+BowlingGame/bin
+BowlingGame/obj
+BowlingGameTest/bin
+BowlingGameTest/bin
