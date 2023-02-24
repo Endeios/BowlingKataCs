@@ -2,7 +2,8 @@
 
 public class Game
 {
-    private int score = 0;
+    private int score;
+
     public void Roll(int i)
     {
         score += i;
