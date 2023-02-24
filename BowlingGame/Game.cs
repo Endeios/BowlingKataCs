@@ -2,15 +2,16 @@
 
 public class Game
 {
-    private int score;
+    private int[] rolls = new int[20];
+    private int currentRoll;
 
-    public void Roll(int i)
+    public void Roll(int pins)
     {
-        score += i;
+        rolls[currentRoll++] = pins;
     }
 
     public int Score()
     {
-        return score;
+        return rolls.Sum();
     }
 }
