@@ -13,14 +13,11 @@ public class Game
     public int Score()
     {
         var score = 0;
-        for (var i = 0; i < rolls.Length; i++)
+        var i = 0;
+        
+        for (var frame = 0; frame < 10; frame++)
         {
-            if (rolls[i]+rolls[i+1]==10)
-            {
-                score += 10;
-            }
-            
-            score += rolls[i];
+            score += rolls[i] + rolls[i+1];
         }
 
         return score;
