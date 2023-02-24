@@ -56,6 +56,15 @@ public class GameShould
         Assert.That(game.Score(), Is.EqualTo(24));
     }
 
+    [Test]
+    public void SupportPerfectGame()
+    {
+        
+        RollTimes(10, 12);
+        
+        Assert.That(game.Score(), Is.EqualTo(300));
+    }
+
     private void RollTimes(int score, int rolls)
     {
         for (var i = 0; i < rolls; i++) game.Roll(score);
