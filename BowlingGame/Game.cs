@@ -12,6 +12,17 @@ public class Game
 
     public int Score()
     {
-        return rolls.Sum();
+        var score = 0;
+        for (var i = 0; i < rolls.Length; i++)
+        {
+            if (rolls[i]+rolls[i+1]==10)
+            {
+                score += 10;
+            }
+            
+            score += rolls[i];
+        }
+
+        return score;
     }
 }
