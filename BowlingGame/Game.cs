@@ -2,12 +2,12 @@
 
 public class Game
 {
-    private int[] rolls = new int[20];
-    private int currentRoll;
+    private readonly int[] _rolls = new int[20];
+    private int _currentRoll;
 
     public void Roll(int pins)
     {
-        rolls[currentRoll++] = pins;
+        _rolls[_currentRoll++] = pins;
     }
 
     public int Score()
@@ -17,19 +17,19 @@ public class Game
         
         for (var frame = 0; frame < 10; frame++)
         {
-            if (isStrike(currentFrame))
+            if (IsStrike(currentFrame))
             {
                 score += CountBonusScore(currentFrame);
                 currentFrame += 1;
             }
-            else if (isSpare(currentFrame))
+            else if (IsSpare(currentFrame))
             {
                 score += CountBonusScore(currentFrame);
                 currentFrame += 2;
             }
             else
             {
-                score += rolls[currentFrame] + rolls[currentFrame + 1];
+                score += _rolls[currentFrame] + _rolls[currentFrame + 1];
                 currentFrame += 2;
             }
 
@@ -40,16 +40,16 @@ public class Game
 
     private int CountBonusScore(int currentFrame)
     {
-        return rolls[currentFrame] + rolls[currentFrame+1] + rolls[currentFrame+2];
+        return _rolls[currentFrame] + _rolls[currentFrame+1] + _rolls[currentFrame+2];
     }
 
-    private bool isStrike(int currentFrame)
+    private bool IsStrike(int currentFrame)
     {
-        return rolls[currentFrame] == 10;
+        return _rolls[currentFrame] == 10;
     }
 
-    private bool isSpare(int i)
+    private bool IsSpare(int i)
     {
-        return rolls[i]+rolls[i+1]==10;
+        return _rolls[i]+_rolls[i+1]==10;
     }
 }

@@ -4,18 +4,18 @@ namespace BowlingGameTest;
 
 public class GameShould
 {
-    private Game game;
+    private Game _game;
 
     [SetUp]
     public void Setup()
     {
-        game = new Game();
+        _game = new Game();
     }
 
     [Test]
     public void CreateAGame()
     {
-        Assert.That(game, Is.Not.Null);
+        Assert.That(_game, Is.Not.Null);
     }
 
     [Test]
@@ -23,7 +23,7 @@ public class GameShould
     {
         RollTimes(0, 20);
 
-        Assert.That(game.Score(), Is.EqualTo(0));
+        Assert.That(_game.Score(), Is.EqualTo(0));
     }
 
     [Test]
@@ -31,29 +31,29 @@ public class GameShould
     {
         RollTimes(1, 20);
 
-        Assert.That(game.Score(), Is.EqualTo(20));
+        Assert.That(_game.Score(), Is.EqualTo(20));
     }
 
     [Test]
     public void SupportOneSpare()
     {
-        game.Roll(5);
-        game.Roll(5);
-        game.Roll(3);
+        _game.Roll(5);
+        _game.Roll(5);
+        _game.Roll(3);
         RollTimes(0, 17);
         
-        Assert.That(game.Score(), Is.EqualTo(16));
+        Assert.That(_game.Score(), Is.EqualTo(16));
     }
 
     [Test]
     public void SupportStrike()
     {
-        game.Roll(10);
-        game.Roll(3);
-        game.Roll(4);
+        _game.Roll(10);
+        _game.Roll(3);
+        _game.Roll(4);
         RollTimes(0, 16);
         
-        Assert.That(game.Score(), Is.EqualTo(24));
+        Assert.That(_game.Score(), Is.EqualTo(24));
     }
 
     [Test]
@@ -62,11 +62,11 @@ public class GameShould
         
         RollTimes(10, 12);
         
-        Assert.That(game.Score(), Is.EqualTo(300));
+        Assert.That(_game.Score(), Is.EqualTo(300));
     }
 
     private void RollTimes(int score, int rolls)
     {
-        for (var i = 0; i < rolls; i++) game.Roll(score);
+        for (var i = 0; i < rolls; i++) _game.Roll(score);
     }
 }
